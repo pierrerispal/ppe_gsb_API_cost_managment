@@ -31,7 +31,7 @@ for ($i = 0; $i < 12960; $i++) {
     
     $cost_sheet = R::dispense('costsheet');
     $cost_sheet->month=$faker->month;
-    $cost_sheet->district=R::findOne('visitor','id=?',[$faker->numberBetween($min = 1, $max = 540)]);
+    $cost_sheet->visitor=R::findOne('visitor','id=?',[$faker->numberBetween($min = 1, $max = 540)]);
     $cost_sheet->status=R::findOne('status','id=?',[$faker->numberBetween($min = 1, $max = 5)]);
     $cost_sheet->justification_number=$faker->randomDigitNotNull;
     $cost_sheet->valid_amount=$faker->randomNumber($nbDigits = 3);
@@ -50,7 +50,7 @@ for ($i = 0; $i < 20; $i++) {
 for ($i = 0; $i < 1000; $i++) {
     $outpackage_line = R::dispense('outpackageline');
     $outpackage_line->date=$faker->dateTime($max = 'now');
-    $outpackage_line->cost_sheet_id=R::findOne('costsheet','id=?',[$faker->numberBetween($min = 1, $max = 12960)]);
+    $outpackage_line->cost_sheet=R::findOne('costsheet','id=?',[$faker->numberBetween($min = 1, $max = 12960)]);
     $outpackage_line->amount=$faker->randomNumber($nbDigits = 3);
     $outpackage_line->libelle=$faker->realText($maxNbChars=20, $indexSize=2);
     R::store($outpackage_line);   
