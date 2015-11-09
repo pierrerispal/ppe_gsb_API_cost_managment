@@ -2,38 +2,78 @@
 
 //COSTSHEETMANAGMENT
 
-//READ
-
-//COSTSHEET BY VISITOR ID
-$app->get('/visitor/:id', function($id){
-        echo 'function';
+$app->get('/', function(){
 });
 
-//COSTSHEET BY DATE
-$app->get('/date/:date', function($date){
-        echo 'function';
+/*
+ * CREATE
+ */
+
+//CREATE A COST SHEET
+$app->get('/create/costsheet/:id/:date', function($id,$date){
+    
 });
 
-
-//COSTSHEET BY VISITOR ID AND DATE
-$app->get('/visitor/:id/date/:date', function($id, $date){
-        echo 'function';
+//CREATE DE PACKAGELINE
+$app->get('/create/packageLine/:month/:quantity/:packageCostId/:costSheetId', function($month,$quantity,$packageCostId,$costSheetId){
+    
 });
 
-
-//CREATE
-
-//CREATE COSTSHEET BY VISITOR ID AND DATE
-$app->get('/create/:id/:date', function($id, $date){
-        echo 'function';
+//CREATE AN OUTPACKAGE LINE
+$app->get('/create/outPackageLine/:month/:cost/:label/:costSheetId', function($month, $cost,$label,$costSheetId){
+        
 });
 
-//CREATE PACKAGELINE WITH : DATE, AMOUNT, LIBELLE, QUANTITY
-$app->get('/create/packageline/:date/:amount/:libelle/:quantity', function($date, $amount, $libelle, $quantity){
-        echo 'function';
+//CREATE A PACKAGECOST
+$app->get('/create/packageCost/:label/:cost', function($label, $cost){
+        
 });
 
-//CREATE OUTPACKAGELINE WITH : DATE, AMOUNT, LIBELLE, QUANTITY
-$app->get('/create/outpackageline/:date/:amount/:libelle/:quantity', function($date, $amount, $libelle, $quantity){
-        echo 'function';
+/*
+ * READ
+ */
+
+//VISITOR BY MATRICULE @TODO appel a l'API RH
+$app->get('/costSheet/visitor/:id', function($id){
+    
 });
+
+//ALL COST SHEET BY MONTH
+$app->get('/costSheet/month/:month', function($month){
+    
+});
+    
+//COST SHEET BY VISITOR & BY MONTH
+$app->get('/costSheet/visitor/:id/month/:month', function($id,$month){
+    
+});
+
+//ALL COST SHEET FOR ONE VISITOR
+$app->get('/costSheet/visitor/:id', function($id){
+    
+});
+
+//ALL PACKAGE COST
+$app->get('/costSheet/packageCost', function(){
+    
+});
+
+//ALL COST SHEET BY STATUS
+$app->get('/costSheet/Status/:status', function($status){
+    
+});
+
+//ALL PACKAGE LINE FROM A COST SHEET
+$app->get('/packageLine/:costSheetId', function($costSheetId){
+    
+});
+
+//ALL OUT PACKAGE LINE FROM A COST SHEET
+$app->get('/outPackageLine/:costSheetId', function($costSheetId){
+    
+});
+
+/*
+ * UPDATE
+ */
+
