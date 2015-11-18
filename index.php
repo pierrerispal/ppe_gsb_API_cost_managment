@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 \Slim\Slim::registerAutoloader();
 require 'api_function.php';
 use RedBeanPHP\Facade as R;
-R::setup( 'mysql:host=localhost','root', 'pwsio' );
+R::setup( 'mysql:host=localhost;dbname=gsb_cost_managment','root', 'pwsio' );
 $app = new \Slim\Slim();
 //$app->add(new \HttpBasicAuth());
 //ROUTES
