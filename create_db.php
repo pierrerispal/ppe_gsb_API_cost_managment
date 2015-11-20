@@ -9,7 +9,7 @@ use RedBeanPHP\Facade as R;
 
 R::setup('mysql:host=localhost;dbname=gsb_cost_managment', 'root', 'pwsio');
 
-R::exec('CREATE VIEW visitor AS SELECT * FROM gsb_human_ressources.employee');
+R::exec('CREATE VIEW visitor AS SELECT * FROM gsb_human_ressources.employee WHERE employee.job_id=3');
 
 $status = R::dispense('status');
 $status->libelle='Créée';
